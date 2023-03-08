@@ -1,6 +1,6 @@
 import './App.css';
 import { useSelector, useDispatch, connect } from 'react-redux'
-import { clearData, fetchData, incrementId, decrementId, inputId } from './features/dataSlice'
+import { clearData, fetchData, incrementID, decrementID, inputID } from './features/dataSlice'
 import { useEffect } from 'react';
 
 function App(props) {
@@ -25,11 +25,11 @@ function App(props) {
       <div>
         <button onClick={() => dispatch(fetchData())}>Thunk!</button>
         <button onClick={() => dispatch(clearData())}>Clear</button>
-        <button onClick={() => dispatch(incrementId())}>Next</button>
-        <button onClick={() => dispatch(decrementId())}>Back</button>
+        <button onClick={() => dispatch(incrementID())}>Next</button>
+        <button onClick={() => dispatch(decrementID())}>Back</button>
       </div>
       <input value={ data.objectId } onChange={(e) => {
-        dispatch(inputId(Number(e.target.value)))
+        dispatch(inputID(Number(e.target.value)))
       }} />
       <div>
         {data.objectId}

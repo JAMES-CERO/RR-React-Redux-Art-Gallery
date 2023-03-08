@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    objectId:
-    apiData:
+    objectId: 10245,
+    apiData:{}
 }
 
 export const dataSlice = createSlice({
     reducer: {
-        ApiState = (state, action) => {
-            return {...state.apiData}
+        ApiState : (state, action) => {
+            return {...state, apiData: action.payload}
         },
-        incrementID = (state, action) => {
-            return {...state.apiData.value +1}
+        incrementID : (state) => {
+            return {...state, objectId: state.objectId +1}
         },
-        decrementID = (state, action) => {
-            return {...state.apiData.value -1}
+        decrementID : (state) => {
+            return {...state, objectId: state.payload -1}
         },
-        customID = (state, action) => {
-            return {...state.apiData + state.apiData + state }
+        inputID : (state, action) => {
+            return {...state, objectId: action.payload }
         },
-        getHome = (state, action) => {
-            return {...state.ApiState.objectId}
+        clearData : () => {
+            return {...initialState}
         }
     }
 })
 
-export const {ApiState, incrementID, decrementID, customID, getHome} = dataSlice.actions
+export const {ApiState, incrementID, decrementID, inputID, clearData} = dataSlice.actions
 
 export default dataSlice.reducer
 
